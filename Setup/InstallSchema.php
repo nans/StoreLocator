@@ -7,6 +7,7 @@ use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\SchemaSetupInterface;
 use Magento\Framework\DB\Ddl\Table;
 use Nans\StoreLocator\Helper\Constants;
+use Nans\StoreLocator\Model\ResourceModel\Location as LocationResource;
 
 class InstallSchema implements InstallSchemaInterface
 {
@@ -32,7 +33,7 @@ class InstallSchema implements InstallSchemaInterface
      */
     public function createLocationTable(SchemaSetupInterface $setup)
     {
-        $tableName = $setup->getTable(Constants::DB_PREFIX . 'location');
+        $tableName = $setup->getTable(Constants::DB_PREFIX . LocationResource::MAIN_TABLE);
 
         if ($setup->tableExists($tableName)) {
             return;
