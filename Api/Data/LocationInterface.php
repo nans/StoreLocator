@@ -2,8 +2,6 @@
 
 namespace Nans\StoreLocator\Api\Data;
 
-use Magento\Tests\NamingConvention\true\string;
-
 interface LocationInterface extends AddressInterface, StatusInterface, ChangeDateInterface
 {
     const KEY_ID          = 'location_id';

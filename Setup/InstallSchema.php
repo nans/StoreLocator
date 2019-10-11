@@ -110,7 +110,9 @@ class InstallSchema implements InstallSchemaInterface
             'Longitude'
         );//longitude
         $this->addTimeColumns($table);
-        $this->addIndexes($table, $setup);
+        $this->addIndex($table, $setup, ['sort_order']);
+        $this->addIndex($table, $setup, ['status']);
+        $this->addIndex($table, $setup, ['store_ids']);
         $table->setComment('Store Location');
         $setup->getConnection()->createTable($table);
     }
@@ -214,18 +216,6 @@ class InstallSchema implements InstallSchemaInterface
                  'default'  => Table::TIMESTAMP_INIT_UPDATE],
                 'Modification Time'
             );
-    }
-
-    /**
-     * @param Table $table
-     * @param SchemaSetupInterface $setup
-     * @throws \Zend_Db_Exception
-     */
-    private function addIndexes(Table &$table, SchemaSetupInterface $setup)
-    {
-        $this->addIndex($table, $setup, ['sort_order']);
-        $this->addIndex($table, $setup, ['status']);
-        $this->addIndex($table, $setup, ['store_ids']);
     }
 
     /**
