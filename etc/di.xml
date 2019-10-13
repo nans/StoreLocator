@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Nans\StoreLocator\Api\Data\LocationSearchResultsInterface" type="Magento\Framework\Api\SearchResults" />
+    <preference for="Nans\StoreLocator\Api\Data\LocationInterface" type="Nans\StoreLocator\Model\Location" />
+    <preference for="Nans\StoreLocator\Api\LocationRepositoryInterface" type="Nans\StoreLocator\Model\LocationRepository" />
+</config>

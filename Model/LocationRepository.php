@@ -11,45 +11,82 @@ use Nans\StoreLocator\Api\Data\LocationInterface;
 use Nans\StoreLocator\Api\Data\LocationSearchResultsInterface;
 use Nans\StoreLocator\Api\LocationRepositoryInterface;
 use Nans\StoreLocator\Model\ResourceModel\Location as LocationResourceModel;
+use Nans\StoreLocator\Api\Data\LocationSearchResultsInterfaceFactory as SearchResultFactory;
+use Nans\StoreLocator\Model\ResourceModel\Location\Collection;
+use Nans\StoreLocator\Model\ResourceModel\Location\CollectionFactory;
+use Magento\Framework\Api\ExtensionAttribute\JoinProcessorInterface;
+use Magento\Framework\Api\SearchCriteria\CollectionProcessorInterface;
 
 class LocationRepository implements LocationRepositoryInterface
 {
     /**
      * @var LocationResourceModel
      */
-    protected $resourceModel;
+    private $resourceModel;
 
     /**
      * @var LocationFactory
      */
-    protected $locationFactory;
+    private $locationFactory;
 
     /**
      * @var FilterBuilder
      */
-    protected $filterBuilder;
+    private $filterBuilder;
 
     /**
      * @var SearchCriteriaBuilder
      */
-    protected $searchCriteriaBuilder;
+    private $searchCriteriaBuilder;
+
+    /**
+     * @var SearchResultFactory
+     */
+    private $searchResultFactory;
+
+    /**
+     * @var CollectionFactory
+     */
+    private $collectionFactory;
+
+    /**
+     * @var JoinProcessorInterface
+     */
+    private $joinProcessor;
+
+    /**
+     * @var CollectionProcessorInterface
+     */
+    private $collectionProcessor;
 
     /**
      * @param LocationResourceModel $resourceModel
      * @param LocationFactory $locationFactory
      * @param FilterBuilder $filterBuilder
      * @param SearchCriteriaBuilder $searchCriteriaBuilder
+     * @param SearchResultFactory $searchResultFactory
+     * @param CollectionFactory $collectionFactory
+     * @param JoinProcessorInterface $joinProcessor
+     * @param CollectionProcessorInterface $collectionProcessor
      */
     public function __construct(
         LocationResourceModel $resourceModel,
         LocationFactory $locationFactory,
         FilterBuilder $filterBuilder,
-        SearchCriteriaBuilder $searchCriteriaBuilder
+        SearchCriteriaBuilder $searchCriteriaBuilder,
+        SearchResultFactory $searchResultFactory,
+        CollectionFactory $collectionFactory,
+        JoinProcessorInterface $joinProcessor,
+        CollectionProcessorInterface $collectionProcessor
     ) {
         $this->resourceModel = $resourceModel;
         $this->locationFactory = $locationFactory;
         $this->filterBuilder = $filterBuilder;
         $this->searchCriteriaBuilder = $searchCriteriaBuilder;
+        $this->searchResultFactory = $searchResultFactory;
+        $this->collectionFactory = $collectionFactory;
+        $this->joinProcessor = $joinProcessor;
+        $this->collectionProcessor = $collectionProcessor;
     }
 
     /**
@@ -114,6 +151,17 @@ class LocationRepository implements LocationRepositoryInterface
      */
     public function getList(SearchCriteriaInterface $searchCriteria)
     {
-        // TODO: Implement getList() method.
+        /** @var LocationSearchResultsInterface $searchResult */
+        $searchResult = $this->searchResultFactory->create();
+
+        /** @var Collection $collection */
+        $collection = $this->collectionFactory->create();
+        $this->joinProcessor->process($collection, LocationInterface::class);
+        $this->collectionProcessor->process($searchCriteria, $collection);
+        $searchResult->setSearchCriteria($searchCriteria);
+        $searchResult->setTotalCount($collection->getSize());
+        $searchResult->setItems($collection->getItems());
+
+        return $searchResult;
     }
 }

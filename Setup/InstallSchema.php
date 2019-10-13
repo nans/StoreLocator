@@ -33,7 +33,7 @@ class InstallSchema implements InstallSchemaInterface
      */
     public function createLocationTable(SchemaSetupInterface $setup)
     {
-        $tableName = $setup->getTable(Constants::DB_PREFIX . LocationResource::MAIN_TABLE);
+        $tableName = $setup->getTable(LocationResource::MAIN_TABLE);
 
         if ($setup->tableExists($tableName)) {
             return;
