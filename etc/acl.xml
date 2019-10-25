@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                    <resource id="Nans_StoreLocator::module" title="Store Locator" translate="title" sortOrder="90">
+                        <resource id="Nans_StoreLocator::admin_index" title="View records in admin panel" translate="title" sortOrder="10"/>
+                        <resource id="Nans_StoreLocator::admin_index_operation" title="View records in admin panel" translate="title" sortOrder="11"/>
+                    </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

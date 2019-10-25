@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Nans_StoreLocator::menu_label"
+             title="Store Locator"
+             translate="title" module="Nans_StoreLocator" sortOrder="20" parent="Magento_Backend::stores" resource="Nans_StoreLocator::module"/>
+        <add id="Nans_StoreLocator::admin_list"
+             title="List"
+             translate="title"
+             module="Nans_StoreLocator"
+             sortOrder="25"
+             parent="Nans_StoreLocator::menu_label"
+             action="locations/index/"
+             resource="Nans_StoreLocator::admin_index"/>
+    </menu>
+</config>
