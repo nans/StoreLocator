@@ -12,11 +12,11 @@ use Nans\StoreLocator\Helper\Constants;
 class LocationActions extends Column
 {
     /** Url path */
-    const PATH_EDIT   = '#';
-    const PATH_DELETE = '#';
+    const PATH_EDIT   = 'locations/index/edit';
+    const PATH_DELETE = 'locations/index/delete';
 
     /** @var UrlInterface */
-    protected $_urlBuilder;
+    protected $urlBuilder;
 
     /**
      * @param ContextInterface $context
@@ -32,7 +32,7 @@ class LocationActions extends Column
         array $components = [],
         array $data = []
     ) {
-        $this->_urlBuilder = $urlBuilder;
+        $this->urlBuilder = $urlBuilder;
         parent::__construct($context, $uiComponentFactory, $components, $data);
     }
 
@@ -49,13 +49,13 @@ class LocationActions extends Column
                 $name = $this->getData('name');
                 if (isset($item[LocationInterface::KEY_ID])) {
                     $item[$name]['edit'] = [
-                        'href'  => $this->_urlBuilder->getUrl(
+                        'href'  => $this->urlBuilder->getUrl(
                             self::PATH_EDIT, [Constants::FRONTEND_ID => $item[LocationInterface::KEY_ID]]
                         ),
                         'label' => __('Edit'),
                     ];
                     $item[$name]['delete'] = [
-                        'href'    => $this->_urlBuilder->getUrl(
+                        'href'    => $this->urlBuilder->getUrl(
                             self::PATH_DELETE,
                             [Constants::FRONTEND_ID => $item[LocationInterface::KEY_ID]]
                         ),

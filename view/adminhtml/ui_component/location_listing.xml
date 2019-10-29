@@ -133,7 +133,7 @@
                 <item name="config" xsi:type="array">
                     <item name="type" xsi:type="string">delete</item>
                     <item name="label" xsi:type="string" translate="true">Delete</item>
-                    <item name="url" xsi:type="url" path="#"/>
+                    <item name="url" xsi:type="url" path="locations/index/massDelete"/>
                     <item name="confirm" xsi:type="array">
                         <item name="title" xsi:type="string" translate="true">Delete</item>
                         <item name="message" xsi:type="string" translate="true">Are you sure you want to delete selected items?</item>
@@ -141,21 +141,21 @@
                 </item>
             </argument>
         </action>
-        <action name="enable">
+        <action name="activate">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="type" xsi:type="string">enable</item>
-                    <item name="label" xsi:type="string" translate="true">Enable</item>
-                    <item name="url" xsi:type="url" path="#"/>
+                    <item name="type" xsi:type="string">activate</item>
+                    <item name="label" xsi:type="string" translate="true">Activate</item>
+                    <item name="url" xsi:type="url" path="locations/index/massActivate"/>
                 </item>
             </argument>
         </action>
-        <action name="disable">
+        <action name="deactivate">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="type" xsi:type="string">disable</item>
-                    <item name="label" xsi:type="string" translate="true">Disable</item>
-                    <item name="url" xsi:type="url" path="#"/>
+                    <item name="type" xsi:type="string">deactivate</item>
+                    <item name="label" xsi:type="string" translate="true">Deactivate</item>
+                    <item name="url" xsi:type="url" path="locations/index/massDeactivate"/>
                 </item>
             </argument>
         </action>

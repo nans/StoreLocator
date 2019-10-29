@@ -8,12 +8,7 @@ use Magento\Framework\View\Result\PageFactory;
 
 class Index extends Action
 {
-    /**
-     * Authorization level of a basic admin session
-     *
-     * @see _isAllowed()
-     */
-    const ADMIN_RESOURCE = 'Nans_StoreLocator::admin_index';
+    const ADMIN_RESOURCE = 'Nans_StoreLocator::admin_location_list';
 
     const MENU_ID = 'Nans_StoreLocator::admin_list';
 
@@ -23,7 +18,6 @@ class Index extends Action
     private $resultPageFactory;
 
     /**
-     * Details constructor.
      * @param Context $context
      * @param PageFactory $resultPageFactory
      */
@@ -32,7 +26,6 @@ class Index extends Action
         PageFactory $resultPageFactory
     ) {
         $this->resultPageFactory = $resultPageFactory;
-
         parent::__construct($context);
     }
 
