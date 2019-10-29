@@ -4,11 +4,11 @@
         <resources>
             <resource id="Magento_Backend::admin">
                     <resource id="Nans_StoreLocator::module" title="Store Locator" translate="title" sortOrder="90">
-                        <resource id="Nans_StoreLocator::admin_location_list" title="View records in admin panel" translate="title" sortOrder="10"/>
+                        <resource id="Nans_StoreLocator::admin_location_list" title="View locations" translate="title" sortOrder="10"/>
                         <resource id="Nans_StoreLocator::admin_location_delete" title="Delete locations" translate="title" sortOrder="11"/>
-                        <resource id="Nans_StoreLocator::admin_location_activate" title="Activate locations" translate="title" sortOrder="11"/>
-                        <resource id="Nans_StoreLocator::admin_location_deactivate" title="Deactivate locations" translate="title" sortOrder="11"/>
-                        <resource id="Nans_StoreLocator::admin_location_create" title="Create locations" translate="title" sortOrder="11"/>
+                        <resource id="Nans_StoreLocator::admin_location_activate" title="Activate locations" translate="title" sortOrder="12"/>
+                        <resource id="Nans_StoreLocator::admin_location_deactivate" title="Deactivate locations" translate="title" sortOrder="13"/>
+                        <resource id="Nans_StoreLocator::admin_location_edit" title="Create\Edit locations" translate="title" sortOrder="14"/>
                     </resource>
             </resource>
         </resources>

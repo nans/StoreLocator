@@ -17,6 +17,8 @@ use Nans\StoreLocator\Model\LocationFactory;
 
 class Edit extends Action
 {
+    const ADMIN_RESOURCE = 'Nans_StoreLocator::admin_location_edit';
+
     /**
      * @var LocationRepositoryInterface
      */
@@ -51,10 +53,7 @@ class Edit extends Action
     }
 
     /**
-     * Edit record data
-     *
      * @return Page|Redirect
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
     public function execute()
     {

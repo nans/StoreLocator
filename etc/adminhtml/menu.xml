@@ -3,7 +3,11 @@
     <menu>
         <add id="Nans_StoreLocator::menu_label"
              title="Store Locator"
-             translate="title" module="Nans_StoreLocator" sortOrder="20" parent="Magento_Backend::stores" resource="Nans_StoreLocator::module"/>
+             translate="title"
+             module="Nans_StoreLocator"
+             sortOrder="20"
+             parent="Magento_Backend::stores"
+             resource="Nans_StoreLocator::admin_location_list"/>
         <add id="Nans_StoreLocator::admin_list"
              title="List"
              translate="title"
@@ -11,6 +15,6 @@
              sortOrder="25"
              parent="Nans_StoreLocator::menu_label"
              action="locations/index/"
-             resource="Nans_StoreLocator::admin_index"/>
+             resource="Nans_StoreLocator::admin_location_list"/>
     </menu>
 </config>

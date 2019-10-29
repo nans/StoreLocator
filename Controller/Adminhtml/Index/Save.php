@@ -26,17 +26,17 @@ class Save extends Action
 
     /**
      * @param Action\Context $context
-     * @param LocationRepositoryInterface $reviewRepository
-     * @param LocationFactory $reviewFactory
+     * @param LocationRepositoryInterface $locationRepository
+     * @param LocationFactory $locationFactory
      */
     public function __construct(
         Action\Context $context,
-        LocationRepositoryInterface $reviewRepository,
-        LocationFactory $reviewFactory
+        LocationRepositoryInterface $locationRepository,
+        LocationFactory $locationFactory
     ) {
         parent::__construct($context);
-        $this->locationRepository = $reviewRepository;
-        $this->locationFactory = $reviewFactory;
+        $this->locationRepository = $locationRepository;
+        $this->locationFactory = $locationFactory;
     }
 
     /**
@@ -48,20 +48,23 @@ class Save extends Action
         $resultRedirect = $this->resultRedirectFactory->create();
         $id = $this->getRequest()->getParam(LocationInterface::KEY_ID);
         $data = $this->getRequest()->getParams();
+        if (is_array($data) && key_exists(LocationInterface::KEY_STORE_IDS, $data) && is_array($data[LocationInterface::KEY_STORE_IDS])) {
+            $data[LocationInterface::KEY_STORE_IDS] = implode(",", $data[LocationInterface::KEY_STORE_IDS]);
+        }
 
-        /** @var Location $review */
+        /** @var Location $location */
         if ($id) {
-            $review = $this->locationRepository->getById($id);
+            $location = $this->locationRepository->getById($id);
         } else {
             unset($data[LocationInterface::KEY_ID]);
-            $review = $this->locationFactory->create();
+            $location = $this->locationFactory->create();
         }
 
         unset($data[LocationInterface::KEY_UPDATE_TIME]);
-        $review->setData($data);
+        $location->setData($data);
 
         try {
-            $this->locationRepository->save($review);
+            $this->locationRepository->save($location);
             $this->messageManager->addSuccessMessage(__('Location saved successfully'));
 
             if (key_exists('back', $data) && $data['back'] == 'edit') {
