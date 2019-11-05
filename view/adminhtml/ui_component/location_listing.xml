@@ -80,6 +80,7 @@
             </item>
         </argument>
     </container>
+
     <filters name="listing_filters">
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
@@ -111,14 +112,16 @@
                 </item>
             </argument>
         </filterInput>
-        <filterInput name="store_ids">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="dataScope" xsi:type="string">store_ids</item>
-                    <item name="label" xsi:type="string" translate="true">Stores</item>
-                </item>
-            </argument>
-        </filterInput>
+        <filterSelect name="store_ids" provider="${ $.parentName }">
+            <settings>
+                <options class="Magento\Cms\Ui\Component\Listing\Column\Cms\Options"/>
+                <label translate="true">Store View</label>
+                <dataScope>store_ids</dataScope>
+                <imports>
+                    <link name="visible">componentType = column, index = ${ $.index }:visible</link>
+                </imports>
+            </settings>
+        </filterSelect>
     </filters>
 
     <massaction name="listing_massaction">
@@ -278,6 +281,7 @@
                 <item name="editor" xsi:type="array">
                     <item name="editorType" xsi:type="string">select</item>
                 </item>
+                <item name="filter" xsi:type="string">select</item>
                 <item name="component" xsi:type="string">Magento_Ui/js/grid/columns/select</item>
                 <item name="dataType" xsi:type="string">select</item>
                 <item name="align" xsi:type="string">left</item>
@@ -296,10 +300,9 @@
         </argument>
     </column>
 
-    <column name="store_ids">
+    <column name="store_ids" class="Nans\StoreLocator\Ui\Component\Listing\Column\Stores">
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
-                <item name="filter" xsi:type="string">text</item>
                 <item name="sorting" xsi:type="string">asc</item>
                 <item name="label" xsi:type="string" translate="true">Store IDs</item>
             </item>
