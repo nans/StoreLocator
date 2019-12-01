@@ -2,11 +2,12 @@
 
 namespace Nans\StoreLocator\Model;
 
+use Nans\StoreLocator\Api\Data\LocationExtensionInterface;
 use Nans\StoreLocator\Model\ResourceModel\Location as ResourceModel;
 use Nans\StoreLocator\Api\Data\LocationInterface;
-use Magento\Framework\Model\AbstractModel;
+use Magento\Framework\Model\AbstractExtensibleModel;
 
-class Location extends AbstractModel implements LocationInterface
+class Location extends AbstractExtensibleModel implements LocationInterface
 {
     /**
      * CMS page cache tag
@@ -299,5 +300,22 @@ class Location extends AbstractModel implements LocationInterface
     public function setLongitude(string $longitude)
     {
         $this->setData(self::KEY_LONGITUDE, $longitude);
+    }
+
+    /**
+     * @return LocationExtensionInterface|null
+     */
+    public function getExtensionAttributes()
+    {
+        return $this->getExtensionAttributes();
+    }
+
+    /**
+     * @param LocationExtensionInterface $extensionAttributes
+     * @return $this
+     */
+    public function setExtensionAttributes(LocationExtensionInterface $extensionAttributes)
+    {
+        return $this->_setExtensionAttributes($extensionAttributes);
     }
 }

@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:helloworld:Magento_Widget:etc/widget.xsd">
+    <widget class="Nans\StoreLocator\Block\Widget\Map" id="nans_store_locator_map">
+        <label>Store Locations</label>
+        <description>Store Locations Map</description>
+    </widget>
+</widgets>

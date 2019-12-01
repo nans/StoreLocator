@@ -2,7 +2,10 @@
 
 namespace Nans\StoreLocator\Api\Data;
 
-interface LocationInterface extends AddressInterface, StatusInterface, ChangeDateInterface
+use Magento\Framework\Api\ExtensibleDataInterface;
+use Nans\StoreLocator\Api\Data\LocationExtensionInterface;
+
+interface LocationInterface extends AddressInterface, StatusInterface, ChangeDateInterface, ExtensibleDataInterface
 {
     const KEY_ID          = 'location_id';
     const KEY_TITLE       = 'title';
@@ -94,4 +97,15 @@ interface LocationInterface extends AddressInterface, StatusInterface, ChangeDat
      * @return void
      */
     public function setLongitude(string $longitude);
+
+    /**
+     * @return LocationExtensionInterface|null
+     */
+    public function getExtensionAttributes();
+
+    /**
+     * @param LocationExtensionInterface $extensionAttributes
+     * @return $this
+     */
+    public function setExtensionAttributes(LocationExtensionInterface $extensionAttributes);
 }
