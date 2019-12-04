@@ -3,12 +3,13 @@
 namespace Nans\StoreLocator\Block\Widget;
 
 use Magento\Framework\Api\SortOrder;
-use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Widget\Block\BlockInterface;
 use Magento\Framework\Api\FilterBuilder;
 use Magento\Framework\Api\SortOrderBuilder;
 use Magento\Framework\View\Element\Template;
 use Magento\Store\Model\StoreManagerInterface;
+use Magento\Framework\Exception\LocalizedException;
+use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Api\Search\FilterGroupBuilder;
 use Magento\Cms\Ui\Component\Listing\Column\Cms\Options;
 use Magento\Framework\Api\Search\SearchCriteriaBuilderFactory;
@@ -16,6 +17,11 @@ use Nans\StoreLocator\Api\Data\LocationInterface;
 use Nans\StoreLocator\Api\LocationRepositoryInterface;
 use Nans\StoreLocator\Helper\Data;
 
+/**
+ * @method \Nans\StoreLocator\Block\Widget\Map getHeight():string
+ * @method \Nans\StoreLocator\Block\Widget\Map getWidth():string
+ * @method \Nans\StoreLocator\Block\Widget\Map getDescription():string
+ */
 class Map extends Template implements BlockInterface
 {
     protected $_template = "widget/map.phtml";
@@ -141,6 +147,7 @@ class Map extends Template implements BlockInterface
 
     /**
      * @return string
+     * @throws LocalizedException
      */
     public function getApiUrl(): string
     {

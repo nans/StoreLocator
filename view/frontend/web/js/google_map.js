@@ -1,9 +1,8 @@
 define([
         'jquery',
         'ko',
-        'jquery/ui',
-        'mage/translate'
-    ], function ($, ko) {
+        'underscore'
+    ], function ($, ko, _) {
         'use strict';
 
         return function (config) {
@@ -15,9 +14,10 @@ define([
                     return;
                 }
 
+                var firstElement = _.first(locations);
                 var startPosition = {
-                    lat: Number(locations[0]['latitude']),
-                    lng: Number(locations[0]['longitude'])
+                    lat: Number(firstElement['latitude']),
+                    lng: Number(firstElement['longitude'])
                 };
 
                 var map = new google.maps.Map(
@@ -33,7 +33,7 @@ define([
             };
 
             self.addMarker = function (data, map) {
-                var contentString = data['description'];
+                var contentString = self.applyDataByPattern(data, _.unescape(config['description_pattern']));
                 var infoWindow = new google.maps.InfoWindow({content: contentString});
                 var marker = new google.maps.Marker({
                     position: {lat: Number(data['latitude']), lng: Number(data['longitude'])},
@@ -44,6 +44,16 @@ define([
                 marker.addListener('click', function () {
                     infoWindow.open(map, marker);
                 });
+            };
+
+            self.applyDataByPattern = function (data, pattern) {
+                var keys = _.keys(data);
+                for (var i = 0; i < keys.length; i++) {
+                    var currentKey = '{' + keys[i] + '}';
+                    pattern = pattern.replace(currentKey, data[keys[i]]);
+                }
+
+                return pattern;
             };
 
             self.initMarkers();

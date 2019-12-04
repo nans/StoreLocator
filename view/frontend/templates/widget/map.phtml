@@ -15,8 +15,9 @@ try {
         "Magento_Ui/js/core/app": {
             "components": {
                 "store_location": {
-                    "component" : "Nans_StoreLocator/js/googlemap",
-                    "locations" : <?php echo $locations ?>
+                    "component" : "Nans_StoreLocator/js/google_map",
+                    "locations" : <?php echo $locations ?>,
+                    "description_pattern" : "<?php echo $block->getDescription(); ?>"
                 }
             }
         }
@@ -27,4 +28,7 @@ try {
     function initMap() {}
 </script>
 <script src="<?php echo $apiUrl; ?>&callback=initMap"></script>
-<div id="map" style="<?php echo $block->getHeight() . $block->getWidth();?>" data-bind="scope: 'store_location'"></div>
+<div id="map"
+     style="height:<?php echo $block->getHeight(); ?>; width: <?php echo $block->getWidth(); ?>;"
+     data-bind="scope: 'store_location'"
+></div>

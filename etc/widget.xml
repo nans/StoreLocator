@@ -6,11 +6,15 @@
         <parameters>
             <parameter name="height" sort_order="10" visible="true" xsi:type="text" required="true">
                 <label>Height</label>
-                <value>height: 400px;</value>
+                <value>400px</value>
             </parameter>
             <parameter name="width" sort_order="20" visible="true" xsi:type="text" required="true">
                 <label>Width</label>
-                <value>width:100%;</value>
+                <value>100%;</value>
+            </parameter>
+            <parameter name="description" sort_order="20" visible="true" xsi:type="block" required="true">
+                <label>Description</label>
+                <block class="Nans\StoreLocator\Block\Adminhtml\Widget\Type\Wysiwyg" />
             </parameter>
         </parameters>
     </widget>
