@@ -4,9 +4,13 @@
         <label>Store Locations</label>
         <description>Store Locations Map</description>
         <parameters>
-            <parameter name="attribute" sort_order="10" visible="true" xsi:type="text" required="true">
-                <label>Attributes</label>
-                <value>style="height: 400px; width:100%;"</value>
+            <parameter name="height" sort_order="10" visible="true" xsi:type="text" required="true">
+                <label>Height</label>
+                <value>height: 400px;</value>
+            </parameter>
+            <parameter name="width" sort_order="20" visible="true" xsi:type="text" required="true">
+                <label>Width</label>
+                <value>width:100%;</value>
             </parameter>
         </parameters>
     </widget>

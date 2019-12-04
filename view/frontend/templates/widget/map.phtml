@@ -3,7 +3,6 @@
 try {
     $apiUrl = $block->getApiUrl();
     $locations = $block->getLocationsJson();
-    $attribute = $block->getData('attribute');
 } catch (Throwable $throwable) {
     echo $throwable->getMessage();
 
@@ -27,5 +26,5 @@ try {
 <script>
     function initMap() {}
 </script>
-<script src="<?php echo $apiUrl; ?>&callback=initMap" async defer></script>
-<div id="map" <?php echo $attribute; ?> data-bind="scope: 'store_location'"></div>
+<script src="<?php echo $apiUrl; ?>&callback=initMap"></script>
+<div id="map" style="<?php echo $block->getHeight() . $block->getWidth();?>" data-bind="scope: 'store_location'"></div>
