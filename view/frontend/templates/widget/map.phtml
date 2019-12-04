@@ -1,4 +1,31 @@
 <?php
-/** @var Nans\StoreLocator\Block\Widget\Map $this */
-$locations = $this->getLocations();
+/** @var Nans\StoreLocator\Block\Widget\Map $block */
+try {
+    $apiUrl = $block->getApiUrl();
+    $locations = $block->getLocationsJson();
+    $attribute = $block->getData('attribute');
+} catch (Throwable $throwable) {
+    echo $throwable->getMessage();
+
+    return;
+}
 ?>
+<script type="text/x-magento-init">
+{
+    "*": {
+        "Magento_Ui/js/core/app": {
+            "components": {
+                "store_location": {
+                    "component" : "Nans_StoreLocator/js/googlemap",
+                    "locations" : <?php echo $locations ?>
+                }
+            }
+        }
+    }
+}
+</script>
+<script>
+    function initMap() {}
+</script>
+<script src="<?php echo $apiUrl; ?>&callback=initMap" async defer></script>
+<div id="map" <?php echo $attribute; ?> data-bind="scope: 'store_location'"></div>

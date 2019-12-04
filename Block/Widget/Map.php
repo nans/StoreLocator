@@ -14,6 +14,7 @@ use Magento\Cms\Ui\Component\Listing\Column\Cms\Options;
 use Magento\Framework\Api\Search\SearchCriteriaBuilderFactory;
 use Nans\StoreLocator\Api\Data\LocationInterface;
 use Nans\StoreLocator\Api\LocationRepositoryInterface;
+use Nans\StoreLocator\Helper\Data;
 
 class Map extends Template implements BlockInterface
 {
@@ -50,6 +51,11 @@ class Map extends Template implements BlockInterface
     private $filterGroupBuilder;
 
     /**
+     * @var Data
+     */
+    private $dataHelper;
+
+    /**
      * @param Template\Context $context
      * @param LocationRepositoryInterface $locationRepository
      * @param SearchCriteriaBuilderFactory $searchCriteriaBuilderFactory
@@ -57,6 +63,7 @@ class Map extends Template implements BlockInterface
      * @param SortOrderBuilder $sortOrderBuilder
      * @param StoreManagerInterface $storeManager
      * @param FilterGroupBuilder $filterGroupBuilder
+     * @param Data $dataHelper
      * @param array $data
      */
     public function __construct(
@@ -67,6 +74,7 @@ class Map extends Template implements BlockInterface
         SortOrderBuilder $sortOrderBuilder,
         StoreManagerInterface $storeManager,
         FilterGroupBuilder $filterGroupBuilder,
+        Data $dataHelper,
         array $data = []
     ) {
         parent::__construct($context, $data);
@@ -76,6 +84,7 @@ class Map extends Template implements BlockInterface
         $this->sortOrderBuilder = $sortOrderBuilder;
         $this->storeManager = $storeManager;
         $this->filterGroupBuilder = $filterGroupBuilder;
+        $this->dataHelper = $dataHelper;
     }
 
     /**
@@ -128,5 +137,13 @@ class Map extends Template implements BlockInterface
     protected function getStoreId(): int
     {
         return $this->storeManager->getStore()->getId();
+    }
+
+    /**
+     * @return string
+     */
+    public function getApiUrl(): string
+    {
+        return $this->dataHelper->getApiUrl() . '?key=' . $this->dataHelper->getApiKey();
     }
 }
