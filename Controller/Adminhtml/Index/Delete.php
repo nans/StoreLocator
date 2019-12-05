@@ -3,6 +3,7 @@
 namespace Nans\StoreLocator\Controller\Adminhtml\Index;
 
 use Magento\Backend\App\Action;
+use Magento\Backend\App\Action\Context;
 use Magento\Backend\Model\View\Result\Redirect;
 use Magento\Framework\Controller\ResultInterface;
 use Nans\StoreLocator\Api\LocationRepositoryInterface;
@@ -18,11 +19,11 @@ class Delete extends Action
     private $locationRepository;
 
     /**
-     * @param \Magento\Backend\App\Action\Context $context
+     * @param Context $context
      * @param LocationRepositoryInterface $locationRepository
      */
     public function __construct(
-        Action\Context $context,
+        Context $context,
         LocationRepositoryInterface $locationRepository
     ) {
         parent::__construct($context);

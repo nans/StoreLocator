@@ -36,8 +36,6 @@ class GenericButton
     }
 
     /**
-     * Generate url by route and parameters
-     *
      * @param   string $route
      * @param   array $params
      * @return  string
@@ -48,8 +46,6 @@ class GenericButton
     }
 
     /**
-     * Check where button can be rendered
-     *
      * @param string $name
      * @return string
      */

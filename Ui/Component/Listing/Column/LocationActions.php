@@ -37,8 +37,6 @@ class LocationActions extends Column
     }
 
     /**
-     * Prepare Data Source
-     *
      * @param array $dataSource
      * @return array
      */

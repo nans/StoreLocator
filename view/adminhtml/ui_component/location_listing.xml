@@ -13,7 +13,7 @@
             <item name="class" xsi:type="string">primary</item>
             <item name="url" xsi:type="string">*/*/edit</item>
         </item>
-        <item name="import" xsi:type="array">
+        <!--<item name="import" xsi:type="array">
             <item name="name" xsi:type="string">import</item>
             <item name="label" xsi:type="string" translate="true">Import Locations</item>
             <item name="class" xsi:type="string">primary</item>
@@ -24,7 +24,7 @@
             <item name="label" xsi:type="string" translate="true">Export Locations</item>
             <item name="class" xsi:type="string">primary</item>
             <item name="url" xsi:type="string">*/*/export</item>
-        </item>
+        </item>-->
     </item>
 </argument>
 <dataSource name="location_listing_data_source">
