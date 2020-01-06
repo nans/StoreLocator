@@ -2,11 +2,10 @@
 Magento 2 Store Locator extension is a module to manage store location.  
 This module assists customers to find out shop location with ease.  
 
-* Allow displaying locations in Google Maps
-* Display multiple store locations on a map
-* Add store locator map to any page of your website
-* Include unlimited store locations
-* Be able to see all information of the store
+* Display multiple store locations on a Google Maps
+* Add store locator map to any page of your website via widget
+* Supported unlimited store locations
+* Be able to see all information of the store in popup
 
 ## Admin Panel  
 ### Configuration  
