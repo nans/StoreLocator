@@ -11,6 +11,7 @@ use Magento\Store\Model\StoreManagerInterface;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Api\Search\FilterGroupBuilder;
+use Magento\Framework\View\Element\Template\Context;
 use Magento\Cms\Ui\Component\Listing\Column\Cms\Options;
 use Magento\Framework\Api\Search\SearchCriteriaBuilderFactory;
 use Nans\StoreLocator\Api\Data\LocationInterface;
@@ -18,9 +19,9 @@ use Nans\StoreLocator\Api\LocationRepositoryInterface;
 use Nans\StoreLocator\Helper\Data;
 
 /**
- * @method \Nans\StoreLocator\Block\Widget\Map getHeight():string
- * @method \Nans\StoreLocator\Block\Widget\Map getWidth():string
- * @method \Nans\StoreLocator\Block\Widget\Map getDescription():string
+ * @method Map getHeight():string
+ * @method Map getWidth():string
+ * @method Map getDescription():string
  */
 class Map extends Template implements BlockInterface
 {
@@ -62,7 +63,7 @@ class Map extends Template implements BlockInterface
     private $dataHelper;
 
     /**
-     * @param Template\Context $context
+     * @param Context $context
      * @param LocationRepositoryInterface $locationRepository
      * @param SearchCriteriaBuilderFactory $searchCriteriaBuilderFactory
      * @param FilterBuilder $filterBuilder
@@ -73,7 +74,7 @@ class Map extends Template implements BlockInterface
      * @param array $data
      */
     public function __construct(
-        Template\Context $context,
+        Context $context,
         LocationRepositoryInterface $locationRepository,
         SearchCriteriaBuilderFactory $searchCriteriaBuilderFactory,
         FilterBuilder $filterBuilder,
@@ -137,20 +138,20 @@ class Map extends Template implements BlockInterface
     }
 
     /**
-     * @return int
-     * @throws NoSuchEntityException
-     */
-    protected function getStoreId(): int
-    {
-        return $this->storeManager->getStore()->getId();
-    }
-
-    /**
      * @return string
      * @throws LocalizedException
      */
     public function getApiUrl(): string
     {
         return $this->dataHelper->getApiUrl() . '?key=' . $this->dataHelper->getApiKey();
+    }
+
+    /**
+     * @return int
+     * @throws NoSuchEntityException
+     */
+    protected function getStoreId(): int
+    {
+        return $this->storeManager->getStore()->getId();
     }
 }

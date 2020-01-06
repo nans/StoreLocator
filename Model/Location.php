@@ -10,6 +10,21 @@ use Magento\Framework\Model\AbstractExtensibleModel;
 class Location extends AbstractExtensibleModel implements LocationInterface
 {
     /**
+     * @var string
+     */
+    protected $_eventPrefix = 'store_location';
+
+    /**
+     * @var string
+     */
+    protected $_eventObject = 'location';
+
+    /**
+     * @var string
+     */
+    protected $_idFieldName = self::KEY_ID;
+
+    /**
      * CMS page cache tag
      */
     const CACHE_TAG = 'store_location';

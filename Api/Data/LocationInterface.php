@@ -3,7 +3,6 @@
 namespace Nans\StoreLocator\Api\Data;
 
 use Magento\Framework\Api\ExtensibleDataInterface;
-use Nans\StoreLocator\Api\Data\LocationExtensionInterface;
 
 interface LocationInterface extends AddressInterface, StatusInterface, ChangeDateInterface, ExtensibleDataInterface
 {

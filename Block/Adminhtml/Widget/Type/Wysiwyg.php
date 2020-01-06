@@ -5,6 +5,7 @@ namespace Nans\StoreLocator\Block\Adminhtml\Widget\Type;
 use Magento\Cms\Model\Wysiwyg\Config;
 use Magento\Backend\Block\Template\Context;
 use Magento\Framework\Data\Form\Element\AbstractElement;
+use Magento\Framework\Data\Form\Element\Editor;
 use Magento\Framework\Data\Form\Element\Factory;
 
 class Wysiwyg extends \Magento\Backend\Block\Template
@@ -42,6 +43,7 @@ class Wysiwyg extends \Magento\Backend\Block\Template
      */
     public function prepareElementHtml(AbstractElement $element)
     {
+        /** @var Editor $editor */
         $editor = $this->factoryElement->create('editor', ['data' => $element->getData()])
             ->setLabel('')
             ->setForm($element->getForm())
@@ -57,7 +59,8 @@ class Wysiwyg extends \Magento\Backend\Block\Template
             $editor->addClass('required-entry');
         }
 
-        $element->setData('after_element_html', $editor->getElementHtml());
+        $info = '<br><b>' . __("Use next codes for data auto filling") . ':</b><br>{title} {description} {phone} {country} {city} {state} {street} {zip}';
+        $element->setData('after_element_html', $editor->getElementHtml() . $info);
         $element->setValue('');
 
         return $element;

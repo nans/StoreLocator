@@ -6,7 +6,6 @@ use Magento\Framework\Setup\InstallSchemaInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\SchemaSetupInterface;
 use Magento\Framework\DB\Ddl\Table;
-use Nans\StoreLocator\Helper\Constants;
 use Nans\StoreLocator\Model\ResourceModel\Location as LocationResource;
 
 class InstallSchema implements InstallSchemaInterface
