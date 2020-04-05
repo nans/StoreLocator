@@ -2,6 +2,7 @@
 
 namespace Nans\StoreLocator\Model;
 
+use Exception;
 use Magento\Framework\Api\FilterBuilder;
 use Magento\Framework\Exception\AlreadyExistsException;
 use Magento\Framework\Model\AbstractModel;
@@ -106,7 +107,7 @@ class LocationRepository implements LocationRepositoryInterface
      *
      * @param LocationInterface|AbstractModel $location
      * @return bool
-     * @throws \Exception
+     * @throws Exception
      */
     public function delete(LocationInterface $location)
     {
@@ -134,7 +135,7 @@ class LocationRepository implements LocationRepositoryInterface
      *
      * @param int $locationId
      * @return bool
-     * @throws \Exception
+     * @throws Exception
      */
     public function deleteById(int $locationId)
     {

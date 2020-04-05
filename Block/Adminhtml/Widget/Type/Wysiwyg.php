@@ -2,13 +2,14 @@
 
 namespace Nans\StoreLocator\Block\Adminhtml\Widget\Type;
 
+use Magento\Backend\Block\Template;
 use Magento\Cms\Model\Wysiwyg\Config;
 use Magento\Backend\Block\Template\Context;
 use Magento\Framework\Data\Form\Element\AbstractElement;
 use Magento\Framework\Data\Form\Element\Editor;
 use Magento\Framework\Data\Form\Element\Factory;
 
-class Wysiwyg extends \Magento\Backend\Block\Template
+class Wysiwyg extends Template
 {
     /**
      * @var Config

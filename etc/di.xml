@@ -13,18 +13,21 @@
             </argument>
         </arguments>
     </virtualType>
+
     <virtualType name="LocationGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
         <arguments>
             <argument name="collection" xsi:type="object" shared="false">Nans\StoreLocator\Model\Resource\Location\Collection</argument>
             <argument name="filterPool" xsi:type="object" shared="false">LocationGirdFilterPool</argument>
         </arguments>
     </virtualType>
+
     <virtualType name="Nans\StoreLocator\Model\ResourceModel\Location\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
             <argument name="mainTable" xsi:type="string">nans_store_location</argument>
             <argument name="resourceModel" xsi:type="string">Nans\StoreLocator\Model\ResourceModel\Location</argument>
         </arguments>
     </virtualType>
+
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">

@@ -6,6 +6,7 @@ use Magento\Framework\Setup\InstallSchemaInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\SchemaSetupInterface;
 use Magento\Framework\DB\Ddl\Table;
+use Zend_Db_Exception;
 use Nans\StoreLocator\Model\ResourceModel\Location as LocationResource;
 
 class InstallSchema implements InstallSchemaInterface
@@ -15,7 +16,7 @@ class InstallSchema implements InstallSchemaInterface
      *
      * @param SchemaSetupInterface $setup
      * @param ModuleContextInterface $context
-     * @throws \Zend_Db_Exception
+     * @throws Zend_Db_Exception
      */
     public function install(
         SchemaSetupInterface $setup,
@@ -28,7 +29,7 @@ class InstallSchema implements InstallSchemaInterface
 
     /**
      * @param SchemaSetupInterface $setup
-     * @throws \Zend_Db_Exception
+     * @throws Zend_Db_Exception
      */
     public function createLocationTable(SchemaSetupInterface $setup)
     {
@@ -119,7 +120,7 @@ class InstallSchema implements InstallSchemaInterface
     /**
      * @param Table $table
      * @param int $length
-     * @throws \Zend_Db_Exception
+     * @throws Zend_Db_Exception
      */
     private function addTitleColumn(Table &$table, $length = 255)
     {
@@ -128,7 +129,7 @@ class InstallSchema implements InstallSchemaInterface
 
     /**
      * @param Table $table
-     * @throws \Zend_Db_Exception
+     * @throws Zend_Db_Exception
      */
     private function addStatusColumn(Table &$table)
     {
@@ -148,7 +149,7 @@ class InstallSchema implements InstallSchemaInterface
     /**
      * @param Table $table
      * @param string $title
-     * @throws \Zend_Db_Exception
+     * @throws Zend_Db_Exception
      */
     private function addPrimaryIdColumn(Table &$table, string $title)
     {
@@ -166,7 +167,7 @@ class InstallSchema implements InstallSchemaInterface
     /**
      * @param Table $table
      * @param int $length
-     * @throws \Zend_Db_Exception
+     * @throws Zend_Db_Exception
      */
     private function addStoreIdsColumn(Table &$table, int $length = 255)
     {
@@ -178,7 +179,7 @@ class InstallSchema implements InstallSchemaInterface
 
     /**
      * @param Table $table
-     * @throws \Zend_Db_Exception
+     * @throws Zend_Db_Exception
      */
     private function addSortOrderColumn(Table &$table)
     {
@@ -196,7 +197,7 @@ class InstallSchema implements InstallSchemaInterface
 
     /**
      * @param Table $table
-     * @throws \Zend_Db_Exception
+     * @throws Zend_Db_Exception
      */
     private function addTimeColumns(Table &$table)
     {
@@ -221,7 +222,7 @@ class InstallSchema implements InstallSchemaInterface
      * @param Table $table
      * @param SchemaSetupInterface $setup
      * @param array $fields
-     * @throws \Zend_Db_Exception
+     * @throws Zend_Db_Exception
      */
     private function addIndex(Table &$table, SchemaSetupInterface $setup, array $fields)
     {

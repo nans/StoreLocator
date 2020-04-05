@@ -2,6 +2,7 @@
 
 namespace Nans\StoreLocator\Controller\Adminhtml\Index;
 
+use Throwable;
 use Magento\Backend\App\Action;
 use Magento\Backend\Model\View\Result\Redirect;
 use Magento\Framework\Controller\ResultInterface;
@@ -73,7 +74,7 @@ class Save extends Action
             }
 
             return $resultRedirect->setPath('*/*/');
-        } catch (\Throwable $throwable) {
+        } catch (Throwable $throwable) {
             $this->messageManager->addErrorMessage(__("Location was not saved"));
 
             return $resultRedirect->setPath('*/*/edit', ['id' => $id]);

@@ -5,6 +5,7 @@ namespace Nans\StoreLocator\Controller\Adminhtml\Index;
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
+use Magento\Framework\View\Result\Page;
 
 class Index extends Action
 {
@@ -32,7 +33,7 @@ class Index extends Action
     /**
      * Bulk list action
      *
-     * @return \Magento\Framework\View\Result\Page
+     * @return Page
      */
     public function execute()
     {

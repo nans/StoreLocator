@@ -1,25 +1,29 @@
 {
-  "name": "nans/store-locator",
-  "description": "Magento 2 - Store Locator extension",
-  "require": {
-    "php": ">=7.0"
-  },
-  "license": [
-    "MIT"
-  ],
-  "type": "magento2-module",
-  "version": "0.0.1",
-  "authors": [
-    {
-      "name": "N.An.S."
-    }
-  ],
-  "autoload": {
-    "files": [
-      "registration.php"
+    "name": "nans/store-locator",
+    "description": "Magento 2 - Store Locator extension",
+    "require": {
+        "php": ">=7.0"
+    },
+    "license": [
+        "MIT"
     ],
-    "psr-4": {
-      "Nans\\StoreLocator\\": ""
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "N.An.S.",
+            "homepage": "https://github.com/nans"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Nans\\StoreLocator\\": ""
+        }
+    },
+    "support": {
+        "issues": "https://github.com/nans/StoreLocator/issues"
     }
-  }
 }

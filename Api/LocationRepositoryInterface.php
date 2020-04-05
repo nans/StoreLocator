@@ -2,6 +2,7 @@
 
 namespace Nans\StoreLocator\Api;
 
+use Exception;
 use Magento\Framework\Api\SearchCriteriaInterface;
 use Magento\Framework\Exception\AlreadyExistsException;
 use Nans\StoreLocator\Api\Data\LocationInterface;
@@ -18,7 +19,7 @@ interface LocationRepositoryInterface
     /**
      * @param LocationInterface $location
      * @return bool
-     * @throws \Exception
+     * @throws Exception
      */
     public function delete(LocationInterface $location);
 
@@ -32,7 +33,7 @@ interface LocationRepositoryInterface
     /**
      * @param int $locationId
      * @return bool
-     * @throws \Exception
+     * @throws Exception
      */
     public function deleteById(int $locationId);
 

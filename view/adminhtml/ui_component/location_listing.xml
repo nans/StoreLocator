@@ -72,8 +72,7 @@
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
                 <item name="columnsData" xsi:type="array">
-                    <item name="provider" xsi:type="string">location_listing.location_listing.location_columns
-                    </item>
+                    <item name="provider" xsi:type="string">location_listing.location_listing.location_columns</item>
                 </item>
                 <item name="component" xsi:type="string">Magento_Ui/js/grid/controls/columns</item>
                 <item name="displayArea" xsi:type="string">dataGridActions</item>
@@ -189,8 +188,7 @@
     <argument name="data" xsi:type="array">
         <item name="config" xsi:type="array">
             <item name="storageConfig" xsi:type="array">
-                <item name="provider" xsi:type="string">location_listing.location_listing.listing_top.bookmarks
-                </item>
+                <item name="provider" xsi:type="string">location_listing.location_listing.listing_top.bookmarks</item>
                 <item name="namespace" xsi:type="string">current</item>
             </item>
             <item name="childDefaults" xsi:type="array">

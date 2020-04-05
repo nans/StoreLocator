@@ -2,6 +2,7 @@
 
 namespace Nans\StoreLocator\Block\Widget;
 
+use Zend_Json_Encoder;
 use Magento\Framework\Api\SortOrder;
 use Magento\Widget\Block\BlockInterface;
 use Magento\Framework\Api\FilterBuilder;
@@ -19,9 +20,9 @@ use Nans\StoreLocator\Api\LocationRepositoryInterface;
 use Nans\StoreLocator\Helper\Data;
 
 /**
- * @method Map getHeight():string
- * @method Map getWidth():string
- * @method Map getDescription():string
+ * @method Map getHeight(): string
+ * @method Map getWidth(): string
+ * @method Map getDescription(): string
  */
 class Map extends Template implements BlockInterface
 {
@@ -134,7 +135,7 @@ class Map extends Template implements BlockInterface
             $locationsArray[] = $location->toArray();
         }
 
-        return \Zend_Json_Encoder::encode($locationsArray);
+        return Zend_Json_Encoder::encode($locationsArray);
     }
 
     /**

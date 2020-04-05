@@ -2,6 +2,7 @@
 
 namespace Nans\StoreLocator\Controller\Adminhtml\Index;
 
+use Exception;
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
 use Magento\Backend\Model\View\Result\Redirect;
@@ -44,7 +45,7 @@ class Delete extends Action
                 $this->messageManager->addSuccessMessage(__('The record has been deleted.'));
 
                 return $resultRedirect->setPath('*/*/');
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 $this->messageManager->addErrorMessage($e->getMessage());
 
                 return $resultRedirect->setPath('*/*/edit', [Constants::FRONTEND_ID => $id]);
